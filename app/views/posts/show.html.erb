@@ -1,0 +1,21 @@
+<article>
+ <header>
+  <h1><%= @post.title %></h1>
+  <p>by <%= link_to @post.user.name, user_path(@post.user)%></p>
+  <p><%= @post.created_at %></p>
+  <p>Status: <%= @post.status %></p>
+  </header>
+  <footer>
+   <p>Last updated on <%= @post.updated_at %></p>
+   <% if @post.user == @_current_user %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= button_to "Delete", @post, method: :delete %>
+    <% if @post.draft? %>
+      <%= link_to 'Publish', publish_post_path(@post) %>
+    <% end %>
+  <% end %>
+  </footer>
+</article>
+<p>
+  <%= link_to "All posts", root_path %>
+</p>

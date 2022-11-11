@@ -1,0 +1,32 @@
+<h2>Sign Up to MindUrFitness</h2>
+<%= form_with(model: @user) do |form| %>
+  <% if @user.errors.any? %>
+    <h2><%= pluralize(@user.errors.count, "error") %> prevented the user from being saved:</h2>
+    <ul>
+      <% @user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </p>
+    <p>
+      <%= form.label :email %>
+      <%= form.email_field :email%>
+    </p>
+    <p>
+      <%= form.label :password %>
+      <%= form.password_field :password%>
+    </p>
+    <p>
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </p>
+    <p>
+      <%= form.submit 'Sign Up' %>
+    </p>
+  <% end %>
+  

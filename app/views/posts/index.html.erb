@@ -1,0 +1,22 @@
+<% if @_current_user %>
+  <%= button_to 'Log Out', log_out_path(@_current_user), method: :delete %>
+<% else %>
+  <%= link_to 'Log In', log_in_path %>
+  <%= link_to 'Sign Up', sign_up_path %>
+<% end %>
+
+<h1>Latest Posts</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post_path(post) %>
+      <%= post.user.name %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <% if @_current_user %>
+    <%= link_to 'Add New Post', new_post_path %>
+  <% end %>
+</p>
