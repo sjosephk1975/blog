@@ -4,6 +4,7 @@
   <p>by <%= link_to @post.user.name, user_path(@post.user)%></p>
   <p><%= @post.created_at %></p>
   <p>Status: <%= @post.status %></p>
+  <p><%= @post.content %></p>
   </header>
   <footer>
    <p>Last updated on <%= @post.updated_at %></p>
